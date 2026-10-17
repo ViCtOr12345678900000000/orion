@@ -22,23 +22,21 @@ function BgCurves() {
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={300} />
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={400} />
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={500} />
-      
-      
     </div>
   );
 }
+
 function App() {
   return (
-    <div className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col">
-      {/* Girl - XL positioning */}
+    <div className="relative md:fixed w-full min-h-screen bg-white overflow-hidden flex flex-col">
+      {/* Girl - MD + LG ONLY */}
       <img 
         src={girlBg}
         alt="Phoenix Girl"
-        className="absolute inset-0 w-full h-full z-0
-        object-cover object-[68%_top] 
-        md:object-contain md:object-right md:translate-x-10
-        xl:object-contain xl:object-[78%_center] xl:scale-[0.92]
-        2xl:object-[75%_center] 2xl:scale-[1.05]"
+        className="fixed inset-0 w-full h-full z-0
+        object-cover object-[68%_top]  
+        md:object-contain md:[78%_center] md:translate-x-10
+        lg:object-contain lg:object-[78%_center] lg:scale-[0.92]"
       />
 
       <BgCurves />
@@ -51,4 +49,5 @@ function App() {
     </div>
   )
 }
+
 export default App;

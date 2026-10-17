@@ -27,22 +27,23 @@ function BgCurves() {
     </div>
   );
 }
-
 function App() {
   return (
-    <div className="relative w-full h-screen bg-white overflow-hidden">
-      
-      {/* Girl behind */}
+    <div className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col">
+      {/* Girl - XL positioning */}
       <img 
         src={girlBg}
         alt="Phoenix Girl"
-        className="absolute inset-0 w-full h-full object-cover md:object-contain lg:object-contain xl:object-contain md:translate-x-12 lg:translate-x-48 z-0"
+        className="absolute inset-0 w-full h-full z-0
+        object-cover object-[68%_top] 
+        md:object-contain md:object-right md:translate-x-10
+        xl:object-contain xl:object-[78%_center] xl:scale-[0.92]
+        2xl:object-[75%_center] 2xl:scale-[1.05]"
       />
 
-      {/* Curves ON TOP of girl, so you can see them - not behind */}
       <BgCurves />
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex-1 flex flex-col">
         <Navbar />
         <Midpg />
       </div>
@@ -50,5 +51,4 @@ function App() {
     </div>
   )
 }
-
 export default App;

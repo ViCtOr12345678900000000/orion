@@ -8,7 +8,8 @@ export default function Footer() {
   return (
     <>
       {/* DESKTOP - same as screenshot */}
-      <div className="hidden md:flex fixed bottom-0 left-0 w-full z-20 bg-black/90 backdrop-blur-md border-t border-white/10 h-[86px]">
+      // Keep same code but change first div to:
+<div className="hidden md:flex fixed bottom-0 left-0 w-full z-20 bg-black/90 backdrop-blur-md border-t border-white/10 h-[86px] xl:h-[104px] 2xl:h-[120px] xl:text-[12px] 2xl:text-[13px]">
         <div className="flex items-center gap-4 px-8 lg:px-10 w-[28%] border-r border-white/10">
           <button className="w-11 h-11 rounded-full border border-white/30 grid place-items-center">
             <span className="text-white text-[14px] ml-[2px]">▶</span>

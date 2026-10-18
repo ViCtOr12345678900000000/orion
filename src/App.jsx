@@ -1,8 +1,10 @@
 // src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import girlBg from "./assets/game-girl.jpg";
 import Navbar from "./components/Navbar";
 import Midpg from "./components/Midpg";
 import Footer from "./components/Footer";
+import Arena from "./pages/Arena"; 
 
 function OneArc({ className = "", r = 420 }) {
   return (
@@ -16,8 +18,7 @@ function OneArc({ className = "", r = 420 }) {
 
 function BgCurves() {
   return (
-    <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-      {/* Duplicate the same arc in 3 positions - little spaces between */}
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={2500} />
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={300} />
       <OneArc className="top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2" r={400} />
@@ -26,27 +27,40 @@ function BgCurves() {
   );
 }
 
-function App() {
+function Home() {
   return (
-    <div className="relative md:fixed w-full min-h-screen bg-white overflow-hidden flex flex-col">
-      {/* Girl - MD + LG ONLY */}
+    <div className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col isolate">
       <img 
         src={girlBg}
         alt="Phoenix Girl"
-        className="fixed inset-0 w-full h-full z-0
-        object-cover object-[68%_top]  
-        md:object-contain md:[78%_center] md:translate-x-10
-        lg:object-contain lg:object-[78%_center] lg:scale-[0.92]"
+        className="fixed inset-0 w-full h-full z-0 object-cover object-[68%_top] md:object-contain md:object-[78%_center] md:translate-x-10 lg:scale-[0.92]"
       />
-
       <BgCurves />
+      
+      {/* NAVBAR ALWAYS ON TOP */}
+      <div className="relative z-50">
+        <Navbar />
+      </div>
 
       <div className="relative z-10 flex-1 flex flex-col">
-        <Navbar />
         <Midpg />
       </div>
-      <Footer />
+      
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/arena" element={<Arena />} />
+      </Routes>
+    </Router>
   )
 }
 

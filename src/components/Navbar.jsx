@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import {Swords, Award, Target, Trophy } from "lucide-react";
 
 export default function Navbar(){
@@ -8,10 +9,10 @@ export default function Navbar(){
   return(
     <header className="relative w-full h-[80px] md:h-[90px] lg:h-[96px] px-5 md:px-8 lg:px-16 flex justify-between items-center bg-blend-lighten border-t border-black/5 z-20">
       <nav className="hidden md:flex items-center gap-6 lg:gap-10 uppercase tracking-widest text-black">
-        <a href="/arena" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Arena <Swords className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></a>
-        <a href="/quests" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Quests<Award className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></a>
-        <a href="/arsenal" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Arsenal<Trophy className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></a>
-        <a href="/squads" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Squads<Target className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></a>
+        <Link to="/arena" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Arena <Swords className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></Link>
+        <Link to="/quests" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Quests<Award className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></Link>
+        <Link to="/arsenal" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Arsenal<Trophy className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></Link>
+        <Link to="/squads" className="text-blue-100 font-extrabold text-[18px] lg:text-[20px] tracking-tighter font-sans py-2 flex">Squads<Target className="h-8 w-8 text-stone-300 p-2 pt-[4px]" /></Link>
       </nav>
 
       <button className="hidden md:flex items-center rounded-full border border-black/20 bg-white/70 backdrop-blur-sm overflow-hidden ml-4">
@@ -25,11 +26,11 @@ export default function Navbar(){
       </button>
 
       {open && (
-        <div className="text-center absolute top-[80px] left-0 w-full bg-inherit p-5 flex flex-col gap-4 md:hidden z-50">
-          <a href="/arena" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Arena <Swords className="m-4 h-8 w-8 text-stone-300" /></a>
-          <a href="/quests" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Quests<Award className="m-4 h-8 w-8 text-stone-300" /></a>
-          <a href="/arsenal" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Arsenal<Trophy className="m-4 h-8 w-8 text-stone-300" /></a>
-          <a href="/squads" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Squads<Target className="m-4 h-8 w-8 text-stone-300" /></a>
+        <div className="text-center absolute top-[80px] left-0 w-full bg-white p-5 flex flex-col gap-4 md:hidden z-50">
+          <Link to="/arena" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Arena <Swords className="m-4 h-8 w-8 text-stone-300" /></Link>
+          <Link to="/quests" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Quests<Award className="m-4 h-8 w-8 text-stone-300" /></Link>
+          <Link to="/arsenal" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Arsenal<Trophy className="m-4 h-8 w-8 text-stone-300" /></Link>
+          <Link to="/squads" onClick={closeMenu} className="text-blue-100 font-extrabold text-[40px] tracking-tighter font-sans uppercase py-2 flex">Squads<Target className="m-4 h-8 w-8 text-stone-300" /></Link>
         </div>
       )}
     </header>
